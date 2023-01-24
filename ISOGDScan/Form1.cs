@@ -18,6 +18,7 @@ namespace ISOGDScan
 {
     public partial class MainForm : Form
     {
+        private PDFSearch pdfSearch;
         public string mainpath = null;
         public string newpath = null;
         public string[] FilesOnDirectory;
@@ -33,6 +34,7 @@ namespace ISOGDScan
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            pdfSearch = PDFSearch.getInstance();
             ObrabotatButton.Enabled = false;
             MainPathLabel.Enabled = false;
             NewpathLabel.Enabled = false;
@@ -209,8 +211,8 @@ namespace ISOGDScan
             //Sorted - Массив с файлами ПДФ, тут нет обработаных и пропущеных.
             foreach (string file in Sorted)
             {
-                    kvartal_number = PDFSearch.Text_Seacher(PDFSearch.TextToPdfExsporter(file))[2];
-                    house_number = PDFSearch.Text_Seacher(PDFSearch.TextToPdfExsporter(file))[3];
+                    kvartal_number = pdfSearch.Text_Seacher(pdfSearch.TextToPdfExsporter(file))[2];
+                    house_number = pdfSearch.Text_Seacher(pdfSearch.TextToPdfExsporter(file))[3];
                     ListTest(kvartal_number, house_number, file);
                 if (PDFSearch.Status_Pdf)
                 {

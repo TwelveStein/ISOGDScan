@@ -16,7 +16,22 @@ namespace ISOGDScan
     {
         public static bool Status_Pdf = false;
         //public static string[] Numbers;
-        public static string[] Text_Seacher(string text)
+        private static object syncRoot = new Object();
+        private static PDFSearch instance;
+        public static PDFSearch getInstance()
+        {
+            if (instance == null)
+            {
+                lock (syncRoot)
+                {
+                    if (instance == null)
+                        instance = new PDFSearch();
+                }
+            }
+            return instance;
+        }
+
+        public string[] Text_Seacher(string text)
         {
             //public static bool Status_Pdf = false;
             string[] Numbers = new string[4];
@@ -70,7 +85,7 @@ namespace ISOGDScan
         /// Переводит PDF в текст 
         /// </summary>
         /// <param name="n">Путь к файлу</param>
-        public static string TextToPdfExsporter(string n)
+        public string TextToPdfExsporter(string n)
         {
             string result = "";
             PdfReader reader = new PdfReader(n);
@@ -86,7 +101,7 @@ namespace ISOGDScan
             reader.Close();
             return result.Replace(" ", "").Replace("\n", "").Replace("\r", "").Replace("—", "");
         }
-        static string TextToPdfExsporter_OCR_Version(string n)
+        public string TextToPdfExsporter_OCR_Version(string n)
         {
             string result = "";
             string file = n;
