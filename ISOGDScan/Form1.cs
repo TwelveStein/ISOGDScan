@@ -119,6 +119,7 @@ namespace ISOGDScan
             RefreshData();
             backgroundWorkerPdfHahdle = new BackgroundWorker();
             backgroundWorkerPdfHahdle.DoWork += (obj, ea) => PdfHandleAsync();
+            backgroundWorkerPdfHahdle.RunWorkerAsync(); 
             progressBar1.Value = 0;
             StatLabel.Text = "Файлов всего: " + CountPDF(FilesOnDirectory) + " |" + " Обработано: " + Countplus(FilesOnDirectory) + $" ({100 * Countplus(FilesOnDirectory) / CountPDF(FilesOnDirectory)}%) " + "|" + " Пропущено: " + CountPropusk(FilesOnDirectory) + $" ({100 * CountPropusk(FilesOnDirectory) / CountPDF(FilesOnDirectory)}%)";
             DisableButtons(true);
