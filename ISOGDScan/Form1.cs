@@ -119,7 +119,7 @@ namespace ISOGDScan
             RefreshData();
             backgroundWorkerPdfHahdle = new BackgroundWorker();
             backgroundWorkerPdfHahdle.DoWork += (obj, ea) => PdfHandleAsync();
-            backgroundWorkerPdfHahdle.RunWorkerAsync(); 
+            backgroundWorkerPdfHahdle.RunWorkerAsync();
             progressBar1.Value = 0;
             StatLabel.Text = "Файлов всего: " + CountPDF(FilesOnDirectory) + " |" + " Обработано: " + Countplus(FilesOnDirectory) + $" ({100 * Countplus(FilesOnDirectory) / CountPDF(FilesOnDirectory)}%) " + "|" + " Пропущено: " + CountPropusk(FilesOnDirectory) + $" ({100 * CountPropusk(FilesOnDirectory) / CountPDF(FilesOnDirectory)}%)";
             DisableButtons(true);
@@ -206,9 +206,39 @@ namespace ISOGDScan
                 }
             }
         }
-        async void PdfHandleAsync() 
+        private async void PdfHandleAsync() 
         {
-            PDFHandle();
+            foreach (string file in Sorted)
+            {
+                kvartal_number = pdfSearch.Text_Seacher(pdfSearch.TextToPdfExsporter(file))[2];
+                house_number = pdfSearch.Text_Seacher(pdfSearch.TextToPdfExsporter(file))[3];
+                //ListTest(kvartal_number, house_number, file);
+                if (PDFSearch.Status_Pdf)
+                {
+                    //если квартала нет
+                    if (!Directory.Exists(newpath + @"\" + kvartal_number))
+                    {
+                        Directory.CreateDirectory(newpath + @"\" + kvartal_number);
+                    }
+                    //если нет папки
+                    if (!Directory.Exists(newpath + @"\" + kvartal_number + @"\" + house_number))
+                    {
+                        Directory.CreateDirectory(newpath + @"\" + kvartal_number + @"\" + house_number);
+                    }
+                    MainAlgorithm(file);
+                }
+                else
+                {
+                    if (!file.Contains(" (Пропущен)"))
+                    {
+                        File.Move(file, file.Remove(file.Length - 4) + " (Пропущен)" + ".pdf");
+                    }
+
+                }
+                progressBar1.PerformStep();
+                RefreshData();
+
+            }
         }
 
         private void PDFHandle()
@@ -217,9 +247,9 @@ namespace ISOGDScan
             //Sorted - Массив с файлами ПДФ, тут нет обработаных и пропущеных.
             foreach (string file in Sorted)
             {
-                    kvartal_number = pdfSearch.Text_Seacher(pdfSearch.TextToPdfExsporter(file))[2];
-                    house_number = pdfSearch.Text_Seacher(pdfSearch.TextToPdfExsporter(file))[3];
-                    ListTest(kvartal_number, house_number, file);
+                kvartal_number = pdfSearch.Text_Seacher(pdfSearch.TextToPdfExsporter(file))[2];
+                house_number = pdfSearch.Text_Seacher(pdfSearch.TextToPdfExsporter(file))[3];
+                ListTest(kvartal_number, house_number, file);
                 if (PDFSearch.Status_Pdf)
                 {
                     //если квартала нет
