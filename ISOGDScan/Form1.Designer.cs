@@ -33,10 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.ApplyButton = new System.Windows.Forms.Button();
-            this.ObrabotatButton = new System.Windows.Forms.Button();
-            this.ObrabotkaButton = new System.Windows.Forms.Button();
-            this.NewFolderButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.newfolderLabel = new System.Windows.Forms.Label();
             this.LabelObrabotka = new System.Windows.Forms.Label();
@@ -51,25 +47,28 @@
             this.MainPathLabel = new System.Windows.Forms.LinkLabel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.NewpathLabel = new System.Windows.Forms.LinkLabel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.ApplyButton = new System.Windows.Forms.Button();
+            this.ObrabotatButton = new System.Windows.Forms.Button();
+            this.ObrabotkaButton = new System.Windows.Forms.Button();
+            this.NewFolderButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.ApplyButton);
-            this.panel1.Controls.Add(this.ObrabotatButton);
-            this.panel1.Controls.Add(this.ObrabotkaButton);
-            this.panel1.Controls.Add(this.NewFolderButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(564, 0);
+            this.panel1.Location = new System.Drawing.Point(570, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(218, 404);
+            this.panel1.Size = new System.Drawing.Size(252, 404);
             this.panel1.TabIndex = 4;
             // 
             // panel3
@@ -78,58 +77,19 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(-1, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(219, 47);
+            this.panel3.Size = new System.Drawing.Size(253, 47);
             this.panel3.TabIndex = 9;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bebas Neue Bold", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(23, 10);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 29);
+            this.label1.Size = new System.Drawing.Size(253, 47);
             this.label1.TabIndex = 9;
             this.label1.Text = "Панель управления";
-            // 
-            // ApplyButton
-            // 
-            this.ApplyButton.Location = new System.Drawing.Point(21, 134);
-            this.ApplyButton.Name = "ApplyButton";
-            this.ApplyButton.Size = new System.Drawing.Size(85, 23);
-            this.ApplyButton.TabIndex = 7;
-            this.ApplyButton.Text = "Подтвердить";
-            this.ApplyButton.UseVisualStyleBackColor = true;
-            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
-            // 
-            // ObrabotatButton
-            // 
-            this.ObrabotatButton.Location = new System.Drawing.Point(112, 134);
-            this.ObrabotatButton.Name = "ObrabotatButton";
-            this.ObrabotatButton.Size = new System.Drawing.Size(88, 23);
-            this.ObrabotatButton.TabIndex = 6;
-            this.ObrabotatButton.Text = "Обработать";
-            this.ObrabotatButton.UseVisualStyleBackColor = true;
-            this.ObrabotatButton.Click += new System.EventHandler(this.ObrabotatButton_Click);
-            // 
-            // ObrabotkaButton
-            // 
-            this.ObrabotkaButton.Location = new System.Drawing.Point(21, 72);
-            this.ObrabotkaButton.Name = "ObrabotkaButton";
-            this.ObrabotkaButton.Size = new System.Drawing.Size(179, 25);
-            this.ObrabotkaButton.TabIndex = 5;
-            this.ObrabotkaButton.Text = "Выберите папку для обработки";
-            this.ObrabotkaButton.UseVisualStyleBackColor = true;
-            this.ObrabotkaButton.Click += new System.EventHandler(this.ObrabotkaButton_Click);
-            // 
-            // NewFolderButton
-            // 
-            this.NewFolderButton.Location = new System.Drawing.Point(21, 103);
-            this.NewFolderButton.Name = "NewFolderButton";
-            this.NewFolderButton.Size = new System.Drawing.Size(179, 25);
-            this.NewFolderButton.TabIndex = 4;
-            this.NewFolderButton.Text = "Выберите конечную папку";
-            this.NewFolderButton.UseVisualStyleBackColor = true;
-            this.NewFolderButton.Click += new System.EventHandler(this.NewFolderButton_Click);
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -139,7 +99,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(564, 47);
+            this.panel2.Size = new System.Drawing.Size(570, 47);
             this.panel2.TabIndex = 5;
             // 
             // newfolderLabel
@@ -192,7 +152,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(0, 381);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(564, 23);
+            this.progressBar1.Size = new System.Drawing.Size(570, 23);
             this.progressBar1.Step = 1;
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 7;
@@ -211,7 +171,7 @@
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(263, 72);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(301, 309);
+            this.listView2.Size = new System.Drawing.Size(307, 309);
             this.listView2.SmallImageList = this.imageList1;
             this.listView2.TabIndex = 11;
             this.listView2.UseCompatibleStateImageBehavior = false;
@@ -246,7 +206,7 @@
             this.panel5.Controls.Add(this.NewpathLabel);
             this.panel5.Location = new System.Drawing.Point(263, 47);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(301, 25);
+            this.panel5.Size = new System.Drawing.Size(307, 25);
             this.panel5.TabIndex = 15;
             // 
             // NewpathLabel
@@ -261,11 +221,64 @@
             this.NewpathLabel.Text = "Конечная папка";
             this.NewpathLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.NewpathLabel_LinkClicked);
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.ObrabotatButton);
+            this.panel6.Controls.Add(this.ApplyButton);
+            this.panel6.Controls.Add(this.ObrabotkaButton);
+            this.panel6.Controls.Add(this.NewFolderButton);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 53);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(30);
+            this.panel6.Size = new System.Drawing.Size(252, 351);
+            this.panel6.TabIndex = 10;
+            // 
+            // ApplyButton
+            // 
+            this.ApplyButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ApplyButton.Location = new System.Drawing.Point(30, 102);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.Size = new System.Drawing.Size(192, 34);
+            this.ApplyButton.TabIndex = 11;
+            this.ApplyButton.Text = "Подтвердить";
+            this.ApplyButton.UseVisualStyleBackColor = true;
+            // 
+            // ObrabotatButton
+            // 
+            this.ObrabotatButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ObrabotatButton.Location = new System.Drawing.Point(30, 136);
+            this.ObrabotatButton.Name = "ObrabotatButton";
+            this.ObrabotatButton.Size = new System.Drawing.Size(192, 34);
+            this.ObrabotatButton.TabIndex = 10;
+            this.ObrabotatButton.Text = "Обработать";
+            this.ObrabotatButton.UseVisualStyleBackColor = true;
+            // 
+            // ObrabotkaButton
+            // 
+            this.ObrabotkaButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ObrabotkaButton.Location = new System.Drawing.Point(30, 66);
+            this.ObrabotkaButton.Name = "ObrabotkaButton";
+            this.ObrabotkaButton.Size = new System.Drawing.Size(192, 36);
+            this.ObrabotkaButton.TabIndex = 9;
+            this.ObrabotkaButton.Text = "Выберите папку для обработки";
+            this.ObrabotkaButton.UseVisualStyleBackColor = true;
+            // 
+            // NewFolderButton
+            // 
+            this.NewFolderButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NewFolderButton.Location = new System.Drawing.Point(30, 30);
+            this.NewFolderButton.Name = "NewFolderButton";
+            this.NewFolderButton.Size = new System.Drawing.Size(192, 36);
+            this.NewFolderButton.TabIndex = 8;
+            this.NewFolderButton.Text = "Выберите конечную папку";
+            this.NewFolderButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 404);
+            this.ClientSize = new System.Drawing.Size(822, 404);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
@@ -281,13 +294,13 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,17 +309,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button ObrabotkaButton;
-        private System.Windows.Forms.Button NewFolderButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label newfolderLabel;
         private System.Windows.Forms.Label LabelObrabotka;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
-        private System.Windows.Forms.Button ObrabotatButton;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button ApplyButton;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label StatLabel;
         private System.Windows.Forms.Panel panel3;
@@ -316,6 +325,11 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.LinkLabel MainPathLabel;
         private System.Windows.Forms.LinkLabel NewpathLabel;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button ObrabotatButton;
+        private System.Windows.Forms.Button ApplyButton;
+        private System.Windows.Forms.Button ObrabotkaButton;
+        private System.Windows.Forms.Button NewFolderButton;
     }
 }
 

@@ -110,18 +110,19 @@ namespace ISOGDScan
             lvi2.ImageIndex = 1;
             if (number != null && kvartal!=null) listView2.Items.Add(lvi2);
         }
-
+        BackgroundWorker backgroundWorkerPdfHahdle;
         private void ObrabotatButton_Click(object sender, EventArgs e)
         {
-                Directory.CreateDirectory("Images");
-                DisableButtons(false);
-                StatLabel.Text = null;
-                RefreshData();
-                PDFHandle();
-                progressBar1.Value = 0;
-                StatLabel.Text = "Файлов всего: " + CountPDF(FilesOnDirectory) + " |" + " Обработано: " + Countplus(FilesOnDirectory) + $" ({100 * Countplus(FilesOnDirectory) / CountPDF(FilesOnDirectory)}%) " + "|" + " Пропущено: " + CountPropusk(FilesOnDirectory) + $" ({100 * CountPropusk(FilesOnDirectory) / CountPDF(FilesOnDirectory)}%)";
-                DisableButtons(true);
-                Directory.Delete("Images", true);
+            Directory.CreateDirectory("Images");
+            DisableButtons(false);
+            StatLabel.Text = null;
+            RefreshData();
+            backgroundWorkerPdfHahdle = new BackgroundWorker();
+            backgroundWorkerPdfHahdle.DoWork += (obj, ea) => PdfHandleAsync();
+            progressBar1.Value = 0;
+            StatLabel.Text = "Файлов всего: " + CountPDF(FilesOnDirectory) + " |" + " Обработано: " + Countplus(FilesOnDirectory) + $" ({100 * Countplus(FilesOnDirectory) / CountPDF(FilesOnDirectory)}%) " + "|" + " Пропущено: " + CountPropusk(FilesOnDirectory) + $" ({100 * CountPropusk(FilesOnDirectory) / CountPDF(FilesOnDirectory)}%)";
+            DisableButtons(true);
+            Directory.Delete("Images", true);
         }
 
         public void GetFilesFromMassive()
@@ -203,6 +204,10 @@ namespace ISOGDScan
                     lvi.ImageIndex = 3;
                 }
             }
+        }
+        async void PdfHandleAsync() 
+        {
+            PDFHandle();
         }
 
         private void PDFHandle()
