@@ -75,8 +75,8 @@
             // 
             this.panel6.Controls.Add(this.ObrabotatButton);
             this.panel6.Controls.Add(this.ApplyButton);
-            this.panel6.Controls.Add(this.ObrabotkaButton);
             this.panel6.Controls.Add(this.NewFolderButton);
+            this.panel6.Controls.Add(this.ObrabotkaButton);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 53);
             this.panel6.Name = "panel6";
@@ -109,7 +109,7 @@
             // ObrabotkaButton
             // 
             this.ObrabotkaButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ObrabotkaButton.Location = new System.Drawing.Point(30, 66);
+            this.ObrabotkaButton.Location = new System.Drawing.Point(30, 30);
             this.ObrabotkaButton.Name = "ObrabotkaButton";
             this.ObrabotkaButton.Size = new System.Drawing.Size(192, 36);
             this.ObrabotkaButton.TabIndex = 9;
@@ -120,7 +120,7 @@
             // NewFolderButton
             // 
             this.NewFolderButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.NewFolderButton.Location = new System.Drawing.Point(30, 30);
+            this.NewFolderButton.Location = new System.Drawing.Point(30, 66);
             this.NewFolderButton.Name = "NewFolderButton";
             this.NewFolderButton.Size = new System.Drawing.Size(192, 36);
             this.NewFolderButton.TabIndex = 8;
