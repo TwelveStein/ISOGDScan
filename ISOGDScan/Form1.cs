@@ -105,10 +105,21 @@ namespace ISOGDScan
         }
         public void ListTest(string kvartal, string number, string name)
         {
+
             ListViewItem lvi2 = new ListViewItem();
             lvi2.Text = kvartal + " | " + number + " | " + Path.GetFileNameWithoutExtension(name);
             lvi2.ImageIndex = 1;
-            if (number != null && kvartal!=null) listView2.Items.Add(lvi2);
+            if (number != null && kvartal != null)
+            {
+                if (!InvokeRequired)
+                {
+                    listView2.Items.Add(lvi2);
+                }
+                else
+                {
+                    Invoke(new Action(() => ListTest(kvartal, number, name)));
+                }
+            }
         }
         BackgroundWorker backgroundWorkerPdfHahdle;
         private void ObrabotatButton_Click(object sender, EventArgs e)
@@ -242,7 +253,6 @@ namespace ISOGDScan
                     }
                     
                 }
-                progressBar1.PerformStep();
                 RefreshData();
 
             }
@@ -322,8 +332,9 @@ namespace ISOGDScan
 
         }
 
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e) 
         {
+            
             if (listView2.SelectedItems.Count > 0)
             {
                 choosedFile = (string)listView2.SelectedItems[0].Text;
@@ -331,6 +342,7 @@ namespace ISOGDScan
                 choosedFile = choosedFile.Remove(choosedFile.LastIndexOf("\\"));
                 choosedFile.Trim();
             }
+            
         }
 
         private void listView2_DoubleClick(object sender, EventArgs e)
